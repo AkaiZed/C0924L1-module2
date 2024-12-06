@@ -1,6 +1,6 @@
 package ss3_array_and_method;
 
-public class bai_4 {
+public class Bai4 {
     public static void main(String[] args) {
         int[][] arr = {
                 {1, 2, 3},

@@ -2,7 +2,7 @@ package ss3_array_and_method;
 
 import java.util.Scanner;
 
-public class bai_3 {
+public class Bai3 {
 
     public static void main(String[] args) {
         int[] a1 = new int[4];
