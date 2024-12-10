@@ -1,4 +1,4 @@
-package ss_5_static.build_class;
+package ss5_static.build_class;
 
 public class Test {
     public static void main(String[] args) {

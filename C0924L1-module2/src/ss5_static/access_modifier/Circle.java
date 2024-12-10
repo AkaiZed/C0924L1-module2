@@ -1,4 +1,4 @@
-package ss_5_static.access_modifier;
+package ss5_static.access_modifier;
 
 public class Circle {
     private double radius = 1.0;
