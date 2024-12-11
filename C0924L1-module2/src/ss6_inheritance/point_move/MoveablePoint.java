@@ -40,7 +40,7 @@ public class MoveablePoint extends Point {
 
     public MoveablePoint move() {
         setXY(getX() + xSpeed, getY() + ySpeed);
-//        return this;
+        return this;
     }
 
     @Override
