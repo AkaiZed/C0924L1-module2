@@ -1,6 +1,6 @@
 package ss7_abstract_interface.code_gym;
 
-import ss7_abstract_interface.Resizeable;
+import ss7_abstract_interface.interface_class.Resizeable;
 
 public class Rectangle extends Shape implements Resizeable {
     private double width = 1.0;

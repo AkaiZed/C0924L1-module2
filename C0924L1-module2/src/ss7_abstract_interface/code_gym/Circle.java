@@ -1,6 +1,6 @@
 package ss7_abstract_interface.code_gym;
 
-import ss7_abstract_interface.Resizeable;
+import ss7_abstract_interface.interface_class.Resizeable;
 
 public class Circle extends Shape implements Resizeable {
     private double radius = 1.0;
