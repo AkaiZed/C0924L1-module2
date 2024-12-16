@@ -165,4 +165,16 @@ public class Validations {
             }
         }
     }
+    public static String getCitizenId(String prompt) {
+        while (true) {
+            System.out.print(prompt);
+            String citizenId = sc.nextLine().trim();
+            if (citizenId.matches("0\\d{11}")) {
+                return citizenId;
+            } else {
+                System.out.println("ID must 0 and follow 11 digits.");
+            }
+        }
+    }
+
 }

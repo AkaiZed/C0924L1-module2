@@ -1,9 +1,11 @@
 package ss8_clean_code.service;
 
-import ss8_clean_code.model.Bicycle;
+import ss8_clean_code.model.Bike;
 
 public interface IBikeService {
-    public Bicycle[] displayBike();
-    public void addBill( Bicycle bike);
-    public boolean removeBill( String id);
+    public Bike[] displayBike();
+
+    public void addBill(Bike bike);
+
+    public boolean removeBill(String id);
 }
