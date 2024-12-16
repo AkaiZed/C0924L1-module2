@@ -94,7 +94,15 @@ public class CustomerService implements ICustomerService {
                 }
             } else {
                 String name = Validations.getName("Enter name: ");
-                int age = (int) Validations.getLong("Enter age: ");
+                int age;
+                while (true) {
+                    age = (int) Validations.getLong("Enter age: ");
+                    if (age < 15&& age > 110) {
+                        System.out.println("Not old enough to rent");
+                    } else {
+                        break;
+                    }
+                }
                 String address = Validations.getName("Enter address: ");
                 addCustomer(new Customer(name, age, citizenId, numbPhone, address));
                 System.out.println("Customer added successfully.");

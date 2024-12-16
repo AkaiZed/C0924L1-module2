@@ -47,7 +47,19 @@ public class Validations {
         }
     }
 
-    public static boolean isValidPhoneNumber(String phoneNumber) {
+    public static String getCitizenId(String prompt) {
+        while (true) {
+            System.out.print(prompt);
+            String citizenId = sc.nextLine().trim();
+            if (citizenId.matches("0\\d{11}")) {
+                return citizenId;
+            } else {
+                System.out.println("Invalid citizen id. It must be 10 digits and start with 0.");
+            }
+        }
+    }
+
+    private static boolean isValidPhoneNumber(String phoneNumber) {
         return phoneNumber.matches("0\\d{9}");
     }
 
@@ -105,7 +117,7 @@ public class Validations {
         return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
     }
 
-    public static String getDate(String prompt) {
+    public static String getStartDate(String prompt) {
         while (true) {
             try {
                 System.out.println(prompt);
@@ -154,27 +166,75 @@ public class Validations {
                     System.out.println("Invalid date. Please try again.");
                     continue;
                 }
-                LocalDate currentDate = LocalDate.now();
-                if (enteredDate.isAfter(currentDate)) {
-                    System.out.println("The entered date cannot be in the future. Please enter a valid date.");
-                    continue;
-                }
                 return enteredDate.toString();
             } catch (NumberFormatException e) {
                 System.out.println("Invalid input. Please enter valid numbers.");
             }
         }
     }
-    public static String getCitizenId(String prompt) {
+
+    public static String getEndDate(String prompt, LocalDate startDate) {
         while (true) {
-            System.out.print(prompt);
-            String citizenId = sc.nextLine().trim();
-            if (citizenId.matches("0\\d{11}")) {
-                return citizenId;
-            } else {
-                System.out.println("ID must 0 and follow 11 digits.");
+            try {
+                System.out.println(prompt);
+                System.out.print("Enter day: ");
+                int day = Integer.parseInt(sc.nextLine().trim());
+
+                System.out.print("Enter month: ");
+                int month = Integer.parseInt(sc.nextLine().trim());
+
+                System.out.print("Enter year: ");
+                int year = Integer.parseInt(sc.nextLine().trim());
+
+                if (month < 1 || month > 12) {
+                    System.out.println("Invalid month. Please enter a value between 1 and 12.");
+                    continue;
+                }
+
+                if (month == 2) {
+                    if (isLeapYear(year)) {
+                        if (day < 1 || day > 29) {
+                            System.out.println("Invalid day. February in a leap year has 29 days.");
+                            continue;
+                        }
+                    } else {
+                        if (day < 1 || day > 28) {
+                            System.out.println("Invalid day. February has 28 days in a non-leap year.");
+                            continue;
+                        }
+                    }
+                } else if (month == 4 || month == 6 || month == 9 || month == 11) {
+                    if (day < 1 || day > 30) {
+                        System.out.println("Invalid day. This month has 30 days.");
+                        continue;
+                    }
+                } else {
+                    if (day < 1 || day > 31) {
+                        System.out.println("Invalid day. This month has 31 days.");
+                        continue;
+                    }
+                }
+
+                LocalDate enteredDate;
+                try {
+                    enteredDate = LocalDate.of(year, month, day);
+                } catch (Exception e) {
+                    System.out.println("Invalid date. Please try again.");
+                    continue;
+                }
+
+                if (enteredDate.isBefore(startDate)) {
+                    System.out.println("End date must be the same as or after the start date. Please try again.");
+                    continue;
+                }
+
+                return enteredDate.toString();
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter valid numbers.");
             }
         }
     }
 
 }
+
+

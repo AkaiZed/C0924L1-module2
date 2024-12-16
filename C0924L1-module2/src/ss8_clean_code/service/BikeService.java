@@ -71,21 +71,12 @@ public class BikeService implements IBikeService {
                 }
                 if (Validations.getYesNo("Id already exists. Try again? (yes/no): ")) {
                     System.out.println("Returning to the main menu...");
-                    return;
-                }
-            }
-            LocalDate startDate = LocalDate.parse(Validations.getDate("Enter start date"));
-            LocalDate endDate;
-            while (true) {
-                endDate = LocalDate.parse(Validations.getDate("Enter end date"));
-                if (endDate.isAfter(startDate)) {
                     break;
-                } else {
-                    System.out.println("End date must be after start date. Please try again.");
                 }
             }
+            LocalDate startDate = LocalDate.parse(Validations.getStartDate("Enter start date"));
+            LocalDate endDate = LocalDate.parse(Validations.getEndDate("Enter end date", startDate));
             double price = Validations.getDouble("Enter bike price: ");
-
             Customer customer = null;
             while (customer == null) {
                 CustomerService customerService = new CustomerService();
@@ -104,7 +95,7 @@ public class BikeService implements IBikeService {
             }
             addBill(new Bike(id, startDate, endDate, price, customer));
             displayBike();
-            return;
+            break;
         }
     }
 
