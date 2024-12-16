@@ -107,6 +107,43 @@ public class BikeRentController extends Menu<String> {
         cusMenu.run();
     }
 
+//    public void editCusOptions() {
+//        String[] editOptions = {
+//                "Edit name",
+//                "Edit age",
+//                "Edit citizen id",
+//                "Edit phone number",
+//                "Edit address",
+//                "Edit all",
+//                "Exit"
+//        };
+//        Menu editMenu = new Menu("---------------Edit Customer------------", editOptions) {
+//            @Override
+//            public void execute(int choice) {
+//                switch (choice) {
+//                    case 1:
+//                        break;
+//                    case 2:
+//                        break;
+//                    case 3:
+//                        break;
+//                    case 4:
+//                        break;
+//                    case 5:
+//                        break;
+//                    case 6:
+//                        break;
+//                    case 7:
+//                        main(displayMainMenu);
+//                    default:
+//                        System.out.println("Invalid choice, please try again");
+//                        break;
+//                }
+//            }
+//        };
+//        editMenu.run();
+//    }
+
     public static void main(String[] args) {
         BikeRentController bikeRentController = new BikeRentController();
         bikeRentController.run();

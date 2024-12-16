@@ -1,5 +1,6 @@
 package ss8_clean_code.service;
 
+import ss8_clean_code.controller.BikeRentController;
 import ss8_clean_code.model.Bike;
 import ss8_clean_code.model.Customer;
 import ss8_clean_code.view.Menu;
@@ -97,7 +98,7 @@ public class CustomerService implements ICustomerService {
                 int age;
                 while (true) {
                     age = (int) Validations.getLong("Enter age: ");
-                    if (age < 15&& age > 110) {
+                    if (age < 15 && age > 110) {
                         System.out.println("Not old enough to rent");
                     } else {
                         break;
@@ -150,16 +151,35 @@ public class CustomerService implements ICustomerService {
         System.out.println("|----------------------|------------------------------------------|-----------|");
     }
 
-//    public void editCus() {
-//        while (true) {
-//            displayCustomer();
-//            String phoneNumber = Validations.getPhoneNumber("Enter phone number you want to edit: ");
-//            if (isDuplicateNumber(phoneNumber)) {
-//            String name = Validations.getName("Enter name: ");
-//            int age = (int) Validations.getLong("Enter age: ");
-//            String address = Validations.getName("Enter address: ");
-//            }
-//        }
-//    }
+    public void editCus() {
+        while (true) {
+            displayCustomer();
+            String phoneNumber = Validations.getPhoneNumber("Enter phone number you want to edit: ");
+            for (int i = 0; i < customers.length; i++) {
+                if (customers[i] != null && customers[i].getCustomerPhone().equals(phoneNumber)) {
+                    System.out.println("Editing information of " + customers[i].getCustomerName());
+
+//                    BikeRentController.editCusOptions();
+                    int newAge;
+                    while (true) {
+                        newAge = (int) Validations.getLong("Enter new age: ");
+                        if (newAge < 15 && newAge > 110) {
+                            System.out.println("Not old enough to rent");
+                        } else {
+                            break;
+                        }
+                    }
+
+                    customers[i].setCustomerName(Validations.getName("Enter new name: "));
+                    customers[i].setCustomerAge(newAge);
+                    customers[i].setCustomerAddress(Validations.getName("Enter new address: "));
+
+                    System.out.println("Customer information updated successfully.");
+                    displayCustomer();
+                    break;
+                }
+            }
+        }
+    }
 }
 
