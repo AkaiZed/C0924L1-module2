@@ -2,7 +2,7 @@ package ss16_io_text_file.controller;
 
 import ss16_io_text_file.service.StudentMng;
 import ss16_io_text_file.view.Menu;
-import ss16_io_text_file.view.Utils;
+import ss16_io_text_file.view.Validations;
 
 public class School extends Menu<String> {
 
@@ -21,7 +21,7 @@ public class School extends Menu<String> {
     public School() {
         super("------------------Manage School----------------", options);
     }
-    Utils data = new Utils();
+    Validations data = new Validations();
 
     @Override
     public void execute(int choice) {

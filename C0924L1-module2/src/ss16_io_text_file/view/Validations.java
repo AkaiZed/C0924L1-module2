@@ -2,7 +2,7 @@ package ss16_io_text_file.view;
 
 import java.util.Scanner;
 
-public class Utils {
+public class Validations {
 
     private Scanner sc = new Scanner(System.in);
 

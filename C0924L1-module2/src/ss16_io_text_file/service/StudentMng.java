@@ -9,7 +9,7 @@ import ss16_io_text_file.model.Address;
 import ss16_io_text_file.model.BizStudent;
 import ss16_io_text_file.model.ITStudent;
 import ss16_io_text_file.model.Student;
-import ss16_io_text_file.view.Utils;
+import ss16_io_text_file.view.Validations;
 
 public class StudentMng implements IStudentMng {
 
@@ -19,7 +19,7 @@ public class StudentMng implements IStudentMng {
         loadData();
     }
 
-    Utils data = new Utils();
+    Validations data = new Validations();
 
     @Override
     public void loadData() {
