@@ -18,6 +18,7 @@ public class VehicleController extends Menu {
 
     Validations data = new Validations();
     VehicleManagement vehicleManagement = new VehicleManagement();
+
     @Override
     public void execute(int choice) {
         switch (choice) {
@@ -28,7 +29,7 @@ public class VehicleController extends Menu {
                 displayVehicle();
                 break;
             case 3:
-//                vehicleManagement.deleteVehicle();
+                deleteVehicle();
                 break;
             case 4:
                 System.exit(0);
@@ -101,6 +102,38 @@ public class VehicleController extends Menu {
             }
         };
         displayMenu.run();
+    }
+
+    private void deleteVehicle() {
+        String[] deleteOptions = {
+                "Delete Truck",
+                "Delete Car",
+                "Delete Moto",
+                "Return to main menu"
+        };
+        Menu<String> deleteMenu = new Menu<String>("------------------Delete Vehicle----------------", deleteOptions) {
+            @Override
+            public void execute(int choice) {
+                switch (choice) {
+                    case 1:
+                        vehicleManagement.deleteVehicle("src/case_study/data/truck.csv");
+                        break;
+                    case 2:
+                        vehicleManagement.deleteVehicle("src/case_study/data/car.csv");
+                        break;
+                    case 3:
+                        vehicleManagement.deleteVehicle("src/case_study/data/moto.csv");
+                        break;
+                    case 4:
+                        System.out.println("Exiting delete student menu...");
+                        main(options);
+                    default:
+                        System.out.println("Invalid choice, please try again");
+
+                }
+            }
+        };
+        deleteMenu.run();
     }
 
     public static void main(String[] args) {
