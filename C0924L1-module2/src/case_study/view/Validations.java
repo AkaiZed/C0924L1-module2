@@ -80,13 +80,13 @@ public class Validations {
         }
     }
 
-    private boolean isValidLicensePlate(String licensePlate, String fileType) {
+    private boolean isValidLicensePlate(String licensePlate, String fileName) {
         String regex;
-        if (fileType.equalsIgnoreCase("car.csv")) {
+        if (fileName.equalsIgnoreCase("car.csv")) {
             regex = "^[0-9]{2}[A-B]-[0-9]{5}$";
-        } else if (fileType.equalsIgnoreCase("truck.csv")) {
+        } else if (fileName.equalsIgnoreCase("truck.csv")) {
             regex = "^[0-9]{2}C-[0-9]{5}$";
-        } else if (fileType.equalsIgnoreCase("moto.csv")) {
+        } else if (fileName.equalsIgnoreCase("moto.csv")) {
             regex = "^[0-9]{2}[A-Z]{1,2}-[0-9]{5}$";
         } else {
             return false;
